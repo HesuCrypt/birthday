@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #ffdbee;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            overflow-x: hidden;
+            color: #ff66aa;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(255, 102, 170, 0.5);
+            animation: bounce 2s infinite;
+        }
+        
+        .birthday-message {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            animation: fadeIn 2s;
+        }
+        
+        .gif-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        
+        .gif-item {
+            width: 220px;
+            height: 220px;
+            margin: 10px;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(255, 102, 170, 0.7);
+            transition: transform 0.3s;
+        }
+        
+        .gif-item:hover {
+            transform: scale(1.1);
+        }
+        
+        .gif-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .gift-box {
+            width: 150px;
+            height: 150px;
+            margin: 50px auto;
+            cursor: pointer;
+            position: relative;
+            transition: transform 0.3s;
+            animation: float 3s infinite alternate;
+        }
+        
+        .gift-box:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .gift-box img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .hidden-message {
+            display: none;
+            background-color: #fff6f9;
+            border: 3px dotted #ff66aa;
+            border-radius: 20px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            animation: popIn 0.5s;
+        }
+        
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff66aa"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center center;
+            animation: float-heart 5s linear infinite;
+        }
+        
+        @keyframes float-heart {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-500px) scale(0.5);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-15px);
+            }
+        }
+        
+        @keyframes popIn {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            80% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        .stars {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background-color: #ffccee;
+            border-radius: 50%;
+            animation: twinkle 1.5s infinite alternate;
+        }
+        
+        @keyframes twinkle {
+            0% {
+                opacity: 0.2;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1.5);
+            }
+        }
+        
+        .ribbon {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 30px;
+            background: linear-gradient(45deg, #ff99cc, #ff66aa, #ff99cc);
+            animation: ribbon-move 10s linear infinite;
+        }
+        
+        @keyframes ribbon-move {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <audio id="bgMusic" loop>
+        <source src="music.mp3" type="audio/mp3">
+    </audio>
+    
+    <div class="ribbon"></div>
+    
+    <div class="container">
+        <h1>Happy Birthday!</h1>
+        
+        <div class="birthday-message">
+            <p>To my beautiful girlfriend ^^</p>
+            <p> I love you! </p>
+        </div>
+        
+        <div class="gif-container">
+            <div class="gif-item">
+                <img src="gif 2.gif" alt="Cute GIF 1">
+            </div>
+            <div class="gif-item">
+                <img src="gif 1.gif" alt="Cute GIF 2">
+            </div>
+            <div class="gif-item">
+                <img src="gif 3.gif" alt="Cute GIF 3">
+            </div>
+        </div>
+        
+        <div class="gift-box">
+            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path fill='%23ff66aa' d='M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464zM256 336c-18 0-32 14-32 32s13.1 32 32 32c17.1 0 32-14 32-32S273.1 336 256 336zM289.1 128h-51.1C199 128 168 159 168 198c0 13 11 24 24 24s24-11 24-24C216 186 225.1 176 237.1 176h51.1C301.1 176 312 186 312 198c0 8-4 14.1-11 18.1L244 251C236 256 232 264 232 272V288c0 13 11 24 24 24S280 301 280 288V286l45.1-28c21-13 34-36 34-60C360 159 329 128 289.1 128z'/></svg>" alt="Click Gift">
+        </div>
+        
+        <div class="hidden-message" id="secretMessage">
+            <h2>My Message For You</h2>
+            <p>Happy Birthday Baby!! </p>
+            <p>Enjoy ur special day and ik this message is too short but</p>
+            <p>I really hope na maabot mo lahat ng wishes mo sa buhay ^^</p>
+        </div>
+    </div>
+    
+    <div class="hearts" id="hearts"></div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const bgMusic = document.getElementById('bgMusic');
+            const giftBox = document.querySelector('.gift-box');
+            const secretMessage = document.getElementById('secretMessage');
+            const hearts = document.getElementById('hearts');
+            const container = document.querySelector('.container');
+            
+            document.body.addEventListener('click', function() {
+                bgMusic.play();
+            });
+            
+            giftBox.addEventListener('click', function() {
+                secretMessage.style.display = 'block';
+                createHeartBurst();
+                giftBox.style.animation = 'popIn 0.5s forwards';
+                setTimeout(() => {
+                    giftBox.style.animation = 'float 3s infinite alternate';
+                }, 500);
+            });
+            
+            function createHeartBurst() {
+                for (let i = 0; i < 20; i++) {
+                    setTimeout(() => {
+                        createHeart();
+                    }, i * 100);
+                }
+            }
+            
+            function createHeart() {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.top = '80%';
+                heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                hearts.appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 6000);
+            }
+            
+            function createStars() {
+                for (let i = 0; i < 50; i++) {
+                    const star = document.createElement('div');
+                    star.classList.add('stars');
+                    star.style.left = Math.random() * 100 + '%';
+                    star.style.top = Math.random() * 100 + '%';
+                    star.style.animationDelay = Math.random() * 2 + 's';
+                    container.appendChild(star);
+                }
+            }
+            
+            setInterval(createHeart, 1000);
+            createStars();
+        });
+    </script>
+</body>
+</html>
